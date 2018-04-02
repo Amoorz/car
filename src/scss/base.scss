@@ -1,0 +1,193 @@
+@charset 'utf-8';
+$font: 112.5;
+$prefix: '../../assets';
+$popupPrefix: '../../../assets';
+$deep: '../../../../assets';
+
+@mixin font ($font:42px) {
+  font-size:$font;
+  [data-dpr="1"] &{
+    font-size: $font/3;
+  }
+  [data-dpr="2"] &{
+    font-size: $font/1.6;
+  }
+  [data-dpr="3"] &{
+    font-size: $font;
+  }
+}
+
+@mixin bg ($url) {
+  [data-dpr="1"] &{
+    background: url('#{$prefix}/2/#{$url}') center center no-repeat;
+    background-size: 100%;
+  }
+  [data-dpr="2"] &{
+    background: url('#{$prefix}/2/#{$url}') center center no-repeat;
+    background-size: 100%;
+  }
+  [data-dpr="3"] &{
+    background: url('#{$prefix}/3/#{$url}') center center no-repeat;
+    background-size: 100%;
+  }
+}
+
+@mixin appBg ($url) {
+  [data-dpr="1"] &{
+    background: url('assets/2/#{$url}') center center no-repeat;
+    background-size: 100%;
+  }
+  [data-dpr="2"] &{
+    background: url('assets/2/#{$url}') center center no-repeat;
+    background-size: 100%;
+  }
+  [data-dpr="3"] &{
+    background: url('assets/3/#{$url}') center center no-repeat;
+    background-size: 100%;
+  }
+}
+
+@mixin popupBg ($url) {
+  [data-dpr="1"] &{
+    background: url('#{$popupPrefix}/2/#{$url}') center center no-repeat;
+    background-size: 100%;
+  }
+  [data-dpr="2"] &{
+    background: url('#{$popupPrefix}/2/#{$url}') center center no-repeat;
+    background-size: 100%;
+  }
+  [data-dpr="3"] &{
+    background: url('#{$popupPrefix}/3/#{$url}') center center no-repeat;
+    background-size: 100%;
+  }
+}
+
+@mixin deepBg ($url) {
+  [data-dpr="1"] &{
+    background: url('#{$deep}/2/#{$url}') center center no-repeat;
+    background-size: 100%;
+  }
+  [data-dpr="2"] &{
+    background: url('#{$deep}/2/#{$url}') center center no-repeat;
+    background-size: 100%;
+  }
+  [data-dpr="3"] &{
+    background: url('#{$deep}/3/#{$url}') center center no-repeat;
+    background-size: 100%;
+  }
+}
+
+
+@mixin allCen ($position) {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  @if ($position == 0) {
+    left: 0;
+  }
+  @if ($position == 1) {
+    right: 0;
+  }
+}
+
+@mixin location ($vertical, $horizontal) {
+  display: flex;
+  @if ($horizontal) {
+    justify-content: center; 
+  }
+  @if ($vertical) {
+    align-items: center;
+  }
+}
+
+// 头部动效
+.yd-fade-enter {
+  opacity: 0
+}
+.yd-fade-enter-active, .yd-fade-leave-active {
+  transition: opacity .2s
+}
+.yd-fade-leave-active {
+  opacity: 0;
+}
+
+// 过渡提示动画
+.wc-fade-enter {
+  opacity: 0
+}
+.wc-fade-enter-active, .wc-fade-leave-active {
+  transition: opacity .4s
+}
+.wc-fade-leave-active {
+  opacity: 0;
+}
+
+// 快捷通道动画
+.pipe-fade-enter {
+  opacity: 0
+}
+.pipe-fade-enter-active, .pipe-fade-leave-active {
+  transition: opacity .2s
+}
+.pipe-fade-leave-active {
+  opacity: 0;
+}
+
+// 头部返回图标
+.header-back{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150rem/$font;
+  height: 140rem/$font;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include font(50px);
+  // &:after{
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 60rem/$font;
+  //   bottom: 0;
+  //   margin: auto;
+  //   width: 30rem/$font;
+  //   height: 30rem/$font;
+  //   border-bottom: 1px solid #fff;
+  //   border-left: 1px solid #fff;
+  //   transform: rotate(45deg);
+  // }
+}
+
+
+.clearfix:before, .clearfix:after { 
+  display: table ; 
+  line-height: 0 ; 
+  content: "" ;  
+  } 
+  .clearfix:after { 
+  clear: both; 
+  } 
+  .clearfix { 
+  *zoom: 1; 
+  } 
+
+// 页面滚动
+// -webkit-overflow-scrolling: touch;
+// overflow: auto;
+
+// 弹性布局    垂直居中  水平居中
+// display: flex;
+// align-items: center;
+// justify-content: center;
+
+// 文字不换行
+// white-space: nowrap;
+
+// 文字溢出省略号
+// overflow: hidden;
+// text-overflow: ellipsis;
+// white-space: nowrap;
+
+

@@ -1,0 +1,78 @@
+@charset 'utf-8';
+.museum{
+  width: 100%;
+  height: 100%;
+  &__header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 140rem/$font;
+    background: #12B7F5;
+    &--title{
+      margin: 0 auto;
+      width: 600rem/$font;
+      height: 140rem/$font;
+      color: #fff;
+      @include font(50px);
+      @include location(0, 0);
+    }
+    &--nav{
+      width: 100%;
+      height: 110rem/$font;
+      background: #fff;
+      li{
+        float: left;
+        width: 33.33%;
+        height: 110rem/$font;
+        color: #333;
+        @include location(0, 0);
+        @include font(48px);
+        // box-sizing: border-box;
+        border-bottom: 1px solid #e5e5e5;
+      }
+      .active{
+        color: #12B7F5;
+        border-bottom: 2px solid #12B7F5;
+      }
+    }
+  }
+  &__content{
+    padding: 250rem/$font 0 140rem/$font;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  .case{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    &>div{
+      width: 100%;
+      padding: 30rem/$font;
+      box-sizing: border-box;
+      p{
+        margin-bottom: 30rem/$font;
+        &:nth-of-type(1){
+          margin-top: 60rem/$font;
+          @include font(46px);
+          font-weight: bold;
+        }
+        &:nth-of-type(2){
+          @include font(42px);
+          line-height: 1.3;
+        }
+      }
+      img{
+        width: 100%;
+      }
+    }
+  }
+  .swiper-container{
+    height: 100%;   
+    overflow-y: auto; 
+  }
+}
