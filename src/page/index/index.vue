@@ -56,8 +56,8 @@ export default {
       load: false,
       newList: [],
       allNews: news,
-      now: 4,
-      maxPage: 19,
+      now: 5,
+      maxPage: 17,
       sw: false,
       large: false,
       change: false,
@@ -121,12 +121,11 @@ export default {
             this.newList.push(this.allNews[i])
           }
         }, 1000)
-          
         setTimeout(() => {
           target = this.$refs.scroller.offsetHeight
           at.min = window.innerHeight - target - footer.offsetHeight
           this.sw = false
-        }, 1100)
+        }, 1010)
       } else {
         this.$toast('没有更多')  
       }
@@ -138,7 +137,7 @@ export default {
           footer = document.getElementsByClassName('footer')[0]
 
       Transform(target, true)
-      Transform(down);
+      Transform(down)
 
       // header.originY = -50;
       // header.translateY = -50;
@@ -159,32 +158,18 @@ export default {
         initialValue: 0,
         change:function(v){ 
           // 下拉>0, 上拉<0
-          
-          // console.log(v)
-          
           down.translateY = v
-          
-          // target.translateY = v
-          // if (v < 55) {
-          //   down.translateY = v
-          // }
 
           // 拖到底部触发
-          // let now = JSON.parse(JSON.stringify(that.now))
-          if (v < window.innerHeight - target.offsetHeight) {
+          if (v <= this.min) {
             if (that.sw == false) {
               that.getMore(this)  
             }
           }
-
         }, 
-        touchStart:function(evt, v){
-          
-        },
-        touchMove:function(evt, v){
-          
-        },  
-        touchEnd:function(evt,v){
+        touchStart:function(evt, v){},
+        touchMove:function(evt, v){},  
+        touchEnd:function(evt, v){
           if (v > 70) {
             this.to(60);
             that.msg = ''
@@ -210,11 +195,11 @@ export default {
         this.newList.push(this.allNews[i])
       }
       this.$loading(1)
-    }, 1500)
+    }, 1000)
 
     setTimeout(() => {
       this.init()
-    }, 1510)
+    }, 1010)
 
 
     
